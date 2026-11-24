@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171022">
+<title>Escaleras, Brujas y Duendes — La aventura comienza</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+:root{--ink:#171022;--plum:#261536;--plum2:#38204c;--violet:#9560b4;--lilac:#d8b9ee;--gold:#f2c66d;--gold2:#ffe4a5;--mint:#a9d78a;--paper:#fff8ed;--muted:#c9b8d5;--pink:#e69bc8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--paper);font-family:'DM Sans',sans-serif}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.nav{height:72px;position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,6vw,90px);background:#171022eF;border-bottom:1px solid #ffffff16;backdrop-filter:blur(18px)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.12em;font-size:12px;color:var(--gold)}.logo-mark{width:34px;height:34px;border:1px solid #f2c66d80;border-radius:50%;display:grid;place-items:center;font-size:18px}
+.navlinks{display:flex;gap:8px}.navlinks a{color:#e9dff0;text-decoration:none;font-size:13px;padding:10px 13px;border-radius:30px;transition:.2s}.navlinks a:hover{background:#ffffff14;color:var(--gold)}
+.hero{min-height:690px;display:grid;align-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 70% 36%,#56316b 0,#2b193d 36%,#171022 76%);padding:76px 7vw 90px}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#171022 0%,#171022d9 37%,#17102222 100%);z-index:1}
+.hero:after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:120px;background:linear-gradient(transparent,var(--ink));z-index:2}
+.moon{position:absolute;width:300px;height:300px;right:14%;top:8%;border-radius:50%;background:radial-gradient(circle at 38% 35%,#fff7dd,#f2d8ff 60%,#a78bbd);box-shadow:0 0 100px #e4c0ff77}
+.castle{position:absolute;right:3%;bottom:58px;width:min(54vw,700px);opacity:.78;filter:drop-shadow(0 0 30px #c79ae955)}
+.hero-copy{position:relative;z-index:3;max-width:650px}.kicker{font-size:11px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}h1,h2,h3{font-family:'Cinzel',Georgia,serif}h1{font-size:clamp(44px,7vw,86px);line-height:.98;letter-spacing:-.045em;margin:22px 0 20px;text-shadow:0 5px 25px #08040c}h1 span{display:block;color:var(--gold)}.hero-copy p{font-size:clamp(16px,2vw,19px);line-height:1.75;color:#e2d5e9;max-width:510px;margin-bottom:30px}
+.actions{display:flex;gap:13px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;border-radius:40px;text-decoration:none;font-weight:800;font-size:13px;border:1px solid transparent;transition:transform .2s,filter .2s}.btn:hover{transform:translateY(-3px);filter:brightness(1.08)}.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#34203e;box-shadow:0 8px 24px #f2c66d30}.btn-ghost{border-color:#ffffff55;color:white;background:#ffffff0c}
+.mascots{position:absolute;z-index:3;right:11%;bottom:65px;display:flex;align-items:end;gap:12px}.mascot{width:clamp(110px,15vw,190px);filter:drop-shadow(0 18px 16px #08040c99);animation:bob 4s ease-in-out infinite}.mascot:nth-child(2){animation-delay:-2s}@keyframes bob{50%{transform:translateY(-12px) rotate(1deg)}}
+.hero-note{margin-top:35px;color:#c6b1d2;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.section{padding:94px 7vw}.section-inner{max-width:1120px;margin:auto}.section-head{text-align:center;max-width:680px;margin:0 auto 42px}.eyebrow{color:var(--gold);font-size:10px;letter-spacing:.25em;text-transform:uppercase;font-weight:800}.section h2{font-size:clamp(30px,4vw,48px);margin:12px 0}.section-head p{color:var(--muted);line-height:1.7;margin:0}
+.story-section{background:linear-gradient(145deg,#241432,#332044)}.story-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:center}.story-art{min-height:360px;border-radius:28px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 35%,#9b70b3,#4b2d60 55%,#21152e);border:1px solid #f2c66d44;display:grid;place-items:center}.story-art .moon-small{position:absolute;right:14%;top:12%;width:100px;height:100px;background:#f5e4c8;border-radius:50%;box-shadow:0 0 50px #ffe3a4aa}.story-art .path{position:absolute;bottom:-40px;width:110%;height:190px;background:#74533d;clip-path:polygon(0 100%,0 60%,25% 30%,48% 50%,70% 15%,100% 35%,100% 100%)}.story-art .sign{z-index:1;font:700 22px Cinzel;color:#fff0ce;text-align:center;text-shadow:0 3px 10px #241432}.story-copy{background:#ffffff09;border:1px solid #ffffff18;padding:clamp(24px,4vw,42px);border-radius:24px;line-height:1.85;color:#e6d9eb}.story-copy p{margin:0 0 15px}.story-copy strong{color:var(--gold2)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:32px 0}.stat{padding:19px;border:1px solid #ffffff18;background:#ffffff08;border-radius:18px;text-align:center}.stat b{display:block;font:700 25px Cinzel;color:var(--gold)}.stat span{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.rules-section{background:#171022}.rules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.rule{padding:25px;border-radius:20px;background:linear-gradient(145deg,#30203f,#21152e);border:1px solid #ffffff17;min-height:190px;transition:.25s}.rule:hover{transform:translateY(-5px);border-color:#f2c66d77}.rule-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:#f2c66d18;font-size:24px}.rule h3{font-size:17px;color:var(--gold);margin:16px 0 8px}.rule p{margin:0;color:#cdbed6;line-height:1.65;font-size:13px}
+.game-section{background:radial-gradient(ellipse at 50% 0,#4b2d60,#1b1228 65%)}.game-shell{max-width:900px;margin:auto;padding:clamp(18px,4vw,34px);background:var(--paper);color:#30203c;border-radius:28px;box-shadow:0 25px 80px #08040c80}.game-header{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.game-header h3{margin:0;font-size:22px}.progress{font-size:12px;font-weight:800;color:#79518c;background:#efe3f4;padding:9px 13px;border-radius:30px}
+.track{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin:25px 0}.cell{aspect-ratio:1;border-radius:10px;display:grid;place-items:center;position:relative;font-weight:800;font-size:clamp(10px,1.7vw,14px);color:#473253;background:#e9d9ef;border:1px solid #d7c3df}.cell:nth-child(4n+1){background:#e3edcf}.cell:nth-child(4n+2){background:#f9e7bf}.cell.special{border:2px solid #8d5ca5}.cell.player:after{content:"";position:absolute;width:16px;height:16px;border-radius:50%;background:#19845c;border:3px solid white;box-shadow:0 2px 7px #30203c;right:4px;bottom:4px}.cell.start,.cell.finish{background:#c4e8d5}.game-controls{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}.die{width:54px;height:54px;border-radius:14px;background:white;border:1px solid #d5c4dc;display:grid;place-items:center;font-size:32px;box-shadow:0 4px 0 #ddcfe2}.game-message{min-height:48px;text-align:center;margin:18px auto 4px;max-width:650px;line-height:1.55;font-weight:700;color:#523665}.legend{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;font-size:11px;color:#715f7c;margin-top:15px}
+.footer{padding:32px 7vw;text-align:center;border-top:1px solid #ffffff16;color:#b9a8c5;font-size:11px;letter-spacing:.12em}.footer b{color:var(--gold)}
+@media(max-width:800px){.hero{min-height:760px;padding-top:70px}.hero:before{background:linear-gradient(180deg,#17102222,#17102255 35%,#171022 85%)}.hero-copy{align-self:start}.moon{width:190px;height:190px;right:4%;top:5%}.castle{width:90vw;right:-15%;bottom:45px}.mascots{right:8%;bottom:55px}.story-layout{grid-template-columns:1fr}.story-art{min-height:240px}.rules-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.nav{height:auto;min-height:64px;padding:10px 15px;align-items:flex-start}.logo{font-size:10px}.navlinks{gap:1px;flex-wrap:wrap;justify-content:flex-end;max-width:210px}.navlinks a{font-size:10px;padding:8px}.hero{min-height:720px;padding:65px 22px 300px}.hero-copy p{font-size:15px}.mascots{right:12%;bottom:55px}.mascot{width:125px}.section{padding:68px 18px}.rules-grid{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:14px 5px}.stat b{font-size:20px}.track{gap:3px}.cell{border-radius:6px}.cell.player:after{width:10px;height:10px;border-width:2px;right:2px;bottom:2px}}
+
+/* --- Mini juego: interfaz renovada --- */
+.game-section{background:radial-gradient(ellipse at 50% 0,#57366d 0,#241632 58%,#171022 100%)}
+.game-shell{max-width:1040px;margin:auto;padding:clamp(16px,3vw,30px);background:linear-gradient(145deg,#fffaf1,#f2e8f4);color:#30203c;border:1px solid #f2c66d99;border-radius:30px;box-shadow:0 28px 90px #08040c99}
+.game-topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.game-brand{display:flex;align-items:center;gap:12px}
+.game-emblem{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#4c2b61,#241632);color:#f5d58f;font-size:23px;box-shadow:0 5px 14px #30203c33}
+.game-brand h3{font-size:clamp(18px,3vw,24px);margin:0;color:#382346}
+.game-brand small{display:block;color:#887592;font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-top:3px;font-weight:800}
+.game-pill{background:#eee2f1;border:1px solid #ddc9e4;border-radius:30px;padding:9px 13px;color:#684b78;font-size:11px;font-weight:900;letter-spacing:.08em}
+.game-setup{display:flex;align-items:end;gap:12px;flex-wrap:wrap;padding:15px;background:#fff;border:1px solid #e8ddec;border-radius:18px;margin-bottom:17px}
+.game-field{display:flex;flex-direction:column;gap:6px;color:#705d7b;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.game-field select{min-width:120px;padding:11px 34px 11px 12px;border-radius:11px;border:1px solid #d9c8df;background:#fbf8fc;color:#382346;font:700 13px 'DM Sans',sans-serif}
+.game-action{border:0;border-radius:12px;padding:12px 17px;font:800 12px 'DM Sans',sans-serif;transition:.2s;cursor:pointer}
+.game-action:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.game-action:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.game-action.primary{background:linear-gradient(135deg,#f7d991,#e9b957);color:#382346;box-shadow:0 5px 13px #d6a94a44}
+.game-action.secondary{background:#49305b;color:#fff}
+.game-action.light{background:#f1e8f4;color:#604672;border:1px solid #dfd0e5}
+.game-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(230px,.8fr);gap:16px;align-items:stretch}
+.board-panel,.side-panel{background:#fff;border:1px solid #e9deeb;border-radius:20px;padding:15px;min-width:0}
+.panel-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.panel-heading strong{font:700 14px Cinzel,Georgia,serif;color:#4a3159}
+.panel-heading span{font-size:10px;color:#9a87a2;font-weight:800}
+.track{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;margin:0}
+.cell{aspect-ratio:1.08;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;position:relative;font-weight:900;font-size:clamp(11px,1.7vw,15px);color:#493552;background:linear-gradient(145deg,#f2e8f5,#e7d9ed);border:1px solid #d8c7df;box-shadow:inset 0 1px #fff;overflow:hidden}
+.cell:nth-child(4n+1){background:linear-gradient(145deg,#edf4df,#dce9c7)}
+.cell:nth-child(4n+2){background:linear-gradient(145deg,#fff1d0,#f4dfb0)}
+.cell .cell-icon{font-size:clamp(14px,2vw,21px);line-height:1.05}
+.cell .cell-number{font-size:10px;color:#796685}
+.cell.special{border:2px solid #a17bb0;box-shadow:0 2px 8px #684b7820}
+.cell.start,.cell.finish{background:linear-gradient(145deg,#d9f1e3,#bce2ce);border-color:#8cc4a6}
+.cell.finish{background:linear-gradient(145deg,#ffe8aa,#f4cd72);border-color:#d8a744}
+.cell .tokens{display:flex;gap:2px;position:absolute;right:3px;bottom:3px;flex-wrap:wrap;justify-content:flex-end;max-width:90%}
+.token-dot{width:12px;height:12px;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px #2c1b35aa}
+.board-key{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;color:#7c6a86;font-size:10px;font-weight:700}
+.board-key span{display:flex;align-items:center;gap:5px}
+.player-list{display:grid;gap:8px}
+.player-card{display:flex;align-items:center;gap:9px;padding:10px;border-radius:13px;background:#faf7fb;border:1px solid #eee5f0}
+.player-card.active{background:#f3e9f7;border:1px solid #b895c8;box-shadow:0 0 0 2px #b895c822}
+.player-swatch{width:13px;height:13px;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px #0003;flex:none}
+.player-info{min-width:0;flex:1}
+.player-info b{display:block;font-size:11px;color:#4b3657}
+.player-info small{font-size:9px;color:#927fa0}
+.player-pos{font-size:11px;font-weight:900;color:#674b79}
+.player-card.done{opacity:.65}
+.dice-zone{margin-top:14px;padding:15px;border-radius:17px;background:linear-gradient(145deg,#382348,#21152e);color:white;text-align:center}
+.dice-caption{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#d7c1e2;font-weight:900}
+.die{width:72px;height:72px;margin:10px auto;border-radius:18px;background:linear-gradient(145deg,#fff,#f1e8f5);border:3px solid #e4d4eb;display:grid;place-items:center;font-size:45px;color:#382348;box-shadow:0 7px 0 #bda8c8,0 12px 22px #08040c55}
+.die.rolling{animation:diceRoll .65s ease-in-out}
+@keyframes diceRoll{0%{transform:rotate(0) scale(1)}25%{transform:rotate(18deg) scale(1.08)}50%{transform:rotate(-18deg) scale(.92)}75%{transform:rotate(10deg) scale(1.04)}100%{transform:rotate(0) scale(1)}}
+.dice-buttons{display:grid;gap:8px}
+.dice-buttons .game-action{width:100%}
+.game-message{min-height:62px;margin:12px 0 0;padding:12px 14px;border-radius:13px;background:#f6f0f8;border:1px solid #e8ddec;text-align:left;line-height:1.5;font-size:11px;font-weight:700;color:#60466e}
+.turn-banner{font-size:10px;color:#e8d9ef;text-align:center;margin-top:9px;min-height:15px}
+.score-note{margin-top:12px;padding:11px;border-radius:13px;background:#fff8e8;border:1px solid #f0dfb9;color:#81683d;font-size:10px;line-height:1.5}
+@media(max-width:760px){.game-layout{grid-template-columns:1fr}.track{gap:5px}.cell{border-radius:9px}.side-panel{display:grid;grid-template-columns:1fr 1fr;gap:12px}.side-panel .panel-heading{grid-column:1/-1}.player-list{grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr))}.dice-zone{margin-top:0}}
+@media(max-width:480px){.game-shell{padding:12px;border-radius:20px}.game-setup{gap:9px}.game-field{flex:1}.game-field select{width:100%;min-width:0}.game-setup .game-action{flex:1}.track{gap:3px}.cell{aspect-ratio:1;border-radius:7px}.cell .tokens{right:1px;bottom:1px}.token-dot{width:9px;height:9px;border-width:1px}.board-panel,.side-panel{padding:10px}.side-panel{grid-template-columns:1fr}.player-list{grid-template-columns:repeat(2,minmax(0,1fr))}.dice-zone{margin-top:0}}
+
+
+.hero-landmark{position:absolute;z-index:3;right:6.5%;bottom:82px;width:clamp(260px,36vw,455px);height:clamp(245px,31vw,365px);margin:0;border:5px solid #d7b56e;border-radius:24px;overflow:hidden;background:#241832;box-shadow:0 24px 65px #07040dcc,0 0 0 1px #fff3;transform:rotate(1deg)}
+.hero-landmark img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 48%;filter:saturate(.9) contrast(1.04)}
+.hero-landmark figcaption small{display:block;margin-top:4px;font-size:8px;letter-spacing:0;text-transform:none;font-weight:500}.hero-landmark:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#130d1dcc);pointer-events:none}
+.hero-landmark figcaption{position:absolute;z-index:1;left:14px;right:14px;bottom:12px;color:#fff3d7;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;text-shadow:0 2px 5px #000}
+.hero-copy{max-width:560px;z-index:4}
+.track{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+.cell{min-width:0;overflow:hidden;transition:transform .18s,border-color .18s,box-shadow .18s}
+.cell.special{box-shadow:inset 0 0 0 1px #fff8}
+.cell.ladder-start{background:#d7efcb!important;border-color:#548e4d!important;color:#245a2d}
+.cell.ladder-end{background:#e6f3d9!important;border-color:#8dbb70!important}
+.cell.witch-cell{background:#f6d7e8!important;border-color:#b54d82!important;color:#79254f}
+.cell.elf-cell{background:#d8ecf7!important;border-color:#4d8bb4!important;color:#245a77}
+.cell .cell-detail{display:block;font-size:clamp(6px,.85vw,9px);font-weight:900;line-height:1.05;text-align:center;padding:0 2px;max-width:100%;overflow-wrap:anywhere}
+.cell .cell-icon{font-size:clamp(14px,2.2vw,22px);line-height:1.1}
+.cell .tokens{z-index:2}
+@media(max-width:800px){.hero{min-height:760px;padding-top:70px}.hero:before{background:linear-gradient(180deg,#17102233,#17102266 35%,#171022 85%)}.hero-copy{align-self:start;max-width:100%}.hero-landmark{right:8%;bottom:60px;width:min(78vw,390px);height:245px}.castle,.moon,.mascots{display:none!important}}
+@media(max-width:520px){.hero{min-height:760px;padding:65px 22px 325px}.hero-landmark{right:7%;bottom:55px;width:86%;height:235px}.hero-landmark figcaption{font-size:9px}.track{gap:3px}.cell .cell-detail{font-size:6px}}
+
+</style>
+</head>
+<body>
+<header class="nav"><div class="logo"><span class="logo-mark">✦</span> EDICIONES MÁGICAS</div><nav class="navlinks"><a href="#inicio">Inicio</a><a href="#historia">Historia</a><a href="#reglas">Cómo jugar</a><a href="#jugar">Minijuego</a></nav></header>
+<main>
+<section class="hero" id="inicio">
+<div class="hero-copy"><div class="kicker">Una aventura de Ediciones Mágicas</div><h1>Escaleras,<span>Brujas y Duendes</span></h1><p>Un camino encantado. Escaleras que te elevan, mientras las brujas y los duendes intentan hacerte retroceder.</p><div class="actions"><a class="btn btn-gold" href="#historia">Descubrir la aventura <span>✦</span></a><a class="btn btn-ghost" href="#jugar">Probar el minijuego</a></div><div class="hero-note">Lanza el dado · Sigue el camino · Alcanza la meta</div></div>
+<figure class="hero-landmark">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Bas%C3%ADlica_de_San_Francisco_de_La_Paz%2C_vista_frontal_de_la_fachada_principal%2C_2026.jpg/1280px-Bas%C3%ADlica_de_San_Francisco_de_La_Paz%2C_vista_frontal_de_la_fachada_principal%2C_2026.jpg" alt="Fachada de la Basílica de San Francisco en La Paz, Bolivia" loading="eager" referrerpolicy="no-referrer">
+  <figcaption>Basílica de San Francisco · La Paz, Bolivia<small>Foto: MayyyZz / Wikimedia Commons · CC BY-SA 4.0</small></figcaption>
+</figure>
+</section>
+<section class="section story-section" id="historia"><div class="section-inner"><div class="section-head"><div class="eyebrow">Capítulo I · El sendero secreto</div><h2>Una noche fuera de lo común</h2><p>Todo gran juego comienza con una historia… y esta tiene un destino muy especial.</p></div>
+<div class="story-layout"><div class="story-art"><div class="moon-small"></div><div class="sign">EL SENDERO<br>ENCANTADO<br><span style="font:12px 'DM Sans';color:#f2c66d;letter-spacing:.2em">LA PAZ · BOLIVIA</span></div><div class="path"></div></div>
+<article class="story-copy"><p>Una tarde, un grupo de amigos decidió salir a pasear por las calles de La Paz. Querían disfrutar de la noche y llegar juntos hasta la <strong>iglesia de San Francisco</strong>. Pero, al tomar un atajo, encontraron un sendero que no aparecía en ningún mapa.</p><p>Una pequeña luz verde apareció entre los árboles. ¡Era un duende! Pero no venía a ayudarlos: era uno de los villanos que vigilaban el sendero. Les advirtió que tendrían que cruzar un camino de casillas encantadas. Algunas escaleras los ayudarían a avanzar, pero las brujas y los duendes intentarían hacerlos retroceder.</p><p>—Tengan cuidado: las brujas los harán retroceder cinco casillas y los duendes, dos —advirtió el duende con una sonrisa traviesa—. Aquí la suerte cambia con cada lanzamiento.</p><p>Los amigos eligieron sus fichas y lanzaron el dado. Cada paso los acercaba a la meta… aunque una bruja traviesa podía aparecer en cualquier momento. <strong>¿Lograrán llegar exactamente al final del camino?</strong></p></article></div></div></section>
+<section class="section rules-section" id="reglas"><div class="section-inner"><div class="section-head"><div class="eyebrow">Capítulo II · Prepara tu partida</div><h2>Las reglas de la aventura</h2><p>Todo lo que necesitas saber para comenzar a jugar.</p></div>
+<div class="stats"><div class="stat"><b>2–6</b><span>Jugadores</span></div><div class="stat"><b>+6</b><span>Años</span></div><div class="stat"><b>10–20</b><span>Minutos</span></div></div>
+<div class="rules-grid">
+<div class="rule"><div class="rule-icon">🎲</div><h3>Prepara el tablero</h3><p>Coloca el tablero sobre una mesa. Cada jugador elige una ficha y todos comienzan en la primera casilla.</p></div>
+<div class="rule"><div class="rule-icon">🔮</div><h3>El primer turno</h3><p>Cada jugador lanza el dado una vez. Quien obtenga el número más alto comienza. Luego, los turnos siguen en sentido horario.</p></div>
+<div class="rule"><div class="rule-icon">🧝</div><h3>La mala pasada del duende</h3><p>Si caes en una casilla con duende, retrocedes 2 casillas. ¡No te dejes engañar por sus travesuras!</p></div>
+<div class="rule"><div class="rule-icon">🧙‍♀️</div><h3>El hechizo de la bruja</h3><p>Si caes en una casilla con bruja, retrocedes 5 casillas. ¡No pierdas de vista el camino!</p></div>
+<div class="rule"><div class="rule-icon">🏁</div><h3>Alcanza la meta</h3><p>Debes llegar exactamente a la casilla final. Si el dado marca un número mayor, no avanzas ese turno.</p></div>
+<div class="rule"><div class="rule-icon">🏆</div><h3>Gana y suma puntos</h3><p>1.º lugar: 3 puntos · 2.º: 2 puntos · 3.º y 4.º: 1 punto. Si hay empate en la meta, lancen el dado otra vez.</p></div>
+</div></div></section>
+<section class="section game-section" id="jugar"><div class="section-inner"><div class="section-head"><div class="eyebrow">Capítulo III · Tu turno</div><h2>El sendero mágico</h2><p>Prepara tu grupo, define quién comienza y recorre el tablero siguiendo las reglas del manual.</p></div>
+<div class="game-shell">
+  <div class="game-topline">
+    <div class="game-brand"><div class="game-emblem">✦</div><div><h3>Camino a la meta</h3><small>Escaleras, Brujas y Duendes</small></div></div>
+    <div class="game-pill" id="roundLabel">PREPARA LA PARTIDA</div>
+  </div>
+  <div class="game-setup">
+    <label class="game-field">Jugadores
+      <select id="playerCount"><option value="2">2 jugadores</option><option value="3">3 jugadores</option><option value="4" selected>4 jugadores</option><option value="5">5 jugadores</option><option value="6">6 jugadores</option></select>
+    </label>
+    <button class="game-action primary" id="startBtn" onclick="startGame()">Preparar partida</button>
+    <button class="game-action light" id="sortBtn" onclick="sortStart()" disabled>Determinar quién empieza</button>
+    <button class="game-action light" onclick="resetGame()">Reiniciar</button>
+  </div>
+  <div class="game-layout">
+    <div class="board-panel">
+      <div class="panel-heading"><strong>Tablero de aventura</strong><span id="progress">SALIDA · 30 CASILLAS</span></div>
+      <div class="track" id="track" aria-label="Tablero de 30 casillas"></div>
+      <div class="board-key">
+        <span>🪜 Escalera: subes</span><span>🧙 Bruja: −5 casillas</span><span>🧝 Duende: −2 casillas</span><span>🏁 Meta</span>
+      </div>
+    </div>
+    <aside class="side-panel">
+      <div class="panel-heading"><strong>Jugadores</strong><span>ORDEN DE TURNO</span></div>
+      <div class="player-list" id="playerList"></div>
+      <div class="dice-zone">
+        <div class="dice-caption">Tu lanzamiento</div>
+        <div class="die" id="die">⚄</div>
+        <div class="dice-buttons">
+          <button class="game-action primary" id="rollBtn" onclick="rollDice()" disabled>Lanzar dado</button>
+        </div>
+        <div class="turn-banner" id="turnBanner">Primero prepara la partida.</div>
+      </div>
+      <div class="game-message" id="message" aria-live="polite">Elige entre 2 y 6 jugadores y pulsa «Preparar partida».</div>
+      <div class="score-note"><b>Puntuación del manual:</b> 1.º lugar = 3 puntos · 2.º = 2 puntos · 3.º y 4.º = 1 punto. Los demás puestos no suman puntos.</div>
+    </aside>
+  </div>
+  <div class="score-note" style="margin-top:14px"><b>Reglas aplicadas:</b> la bruja hace retroceder 5 casillas; el duende hace retroceder 2; las escaleras permiten subir. Si retrocedes más allá de la salida, te quedas en la casilla 1. Para ganar necesitas el número exacto.</div>
+  <div class="score-note"><b>Nota:</b> este es un minijuego de demostración de 30 casillas. Las ubicaciones de ejemplo de brujas, duendes y escaleras se pueden ajustar cuando se confirme su posición exacta en el tablero físico.</div>
+</div></div></section>
+</main><footer class="footer">✦ <b>EDICIONES MÁGICAS</b> · ESCALERAS, BRUJAS Y DUENDES · LA MAGIA ESTÁ EN CADA CASILLA ✦</footer>
+<script>
+const finish=30;
+// Posiciones de ejemplo para este minijuego de demostración.
+const ladders={4:10,12:18,21:27};
+const witches=[16,25];
+const elves=[6,23];
+const colors=['#e45b67','#4386d8','#39a879','#a56bd0','#e29b37','#36a9b5'];
+const diceFaces=['⚀','⚁','⚂','⚃','⚄','⚅'];
+let players=[],current=0,locked=false,started=false,sorted=false,round=1;
+let roundQueue=[],roundFinishers=[],timerIds=[],intervalIds=[],gameToken=0;
+
+function clearGameTimers(){
+  timerIds.forEach(id=>clearTimeout(id)); timerIds=[];
+  intervalIds.forEach(id=>clearInterval(id)); intervalIds=[];
+}
+function later(fn,delay,token=gameToken){
+  const id=setTimeout(()=>{timerIds=timerIds.filter(x=>x!==id);if(token===gameToken)fn();},delay);
+  timerIds.push(id); return id;
+}
+function rollDie(){return Math.floor(Math.random()*6)+1;}
+function setMessage(text){document.getElementById('message').textContent=text;}
+function startGame(){
+  clearGameTimers();gameToken++;
+  const count=Math.max(2,Math.min(6,Number(document.getElementById('playerCount').value)||2));
+  players=Array.from({length:count},(_,i)=>({id:i,position:1,color:colors[i],done:false,points:0,sort:0,place:0,finishRound:null}));
+  current=0;round=1;locked=false;started=true;sorted=false;roundQueue=[];roundFinishers=[];
+  document.getElementById('playerCount').disabled=true;
+  document.getElementById('sortBtn').disabled=false;
+  document.getElementById('rollBtn').disabled=true;
+  document.getElementById('startBtn').textContent='Partida preparada';
+  document.getElementById('startBtn').disabled=true;
+  document.getElementById('die').textContent='⚄';
+  document.getElementById('roundLabel').textContent='LISTOS PARA JUGAR';
+  setMessage('¡Todos están en la salida! Pulsa «Determinar quién empieza». Cada jugador lanza una vez; el número más alto comienza.');
+  renderGame();
+}
+function sortStart(){
+  if(!started||sorted||locked)return;
+  locked=true;document.getElementById('sortBtn').disabled=true;
+  const rolls=players.map(p=>({id:p.id,roll:rollDie()}));
+  rolls.forEach(x=>players[x.id].sort=x.roll);
+  let candidates=rolls.filter(x=>x.roll===Math.max(...rolls.map(y=>y.roll)));
+  const tieLog=[];
+  while(candidates.length>1){
+    const next=candidates.map(x=>({id:x.id,roll:rollDie()}));
+    tieLog.push(next.map(x=>`J${x.id+1}: ${x.roll}`).join(' · '));
+    const high=Math.max(...next.map(x=>x.roll));
+    candidates=next.filter(x=>x.roll===high);
+  }
+  current=candidates[0].id;sorted=true;locked=false;
+  document.getElementById('rollBtn').disabled=false;
+  document.getElementById('die').textContent=diceFaces[rolls.find(x=>x.id===current).roll-1];
+  document.getElementById('roundLabel').textContent='PARTIDA EN CURSO';
+  const detail=rolls.map(x=>`J${x.id+1}: ${x.roll}`).join(' · ');
+  setMessage(`Sorteo inicial: ${detail}.${tieLog.length?` Desempate(s): ${tieLog.join(' / ')}.`:''} Comienza el Jugador ${current+1}. Los turnos continúan en sentido horario.`);
+  beginRound(true);renderGame();
+}
+function beginRound(includeCurrent=false){
+  // Una ronda contiene un turno de cada jugador que seguía activo al comenzar la ronda.
+  roundQueue=[];
+  const firstOffset=includeCurrent?0:1;
+  for(let step=firstOffset;step<firstOffset+players.length;step++){
+    const idx=(current+step)%players.length;
+    if(!players[idx].done)roundQueue.push(idx);
+  }
+  if(!roundQueue.length){finishGame();return;}
+  current=roundQueue.shift();
+  renderGame();
+}
+function cellDescription(n){
+  if(n===1)return ['SALIDA','🚩','start'];
+  if(n===finish)return ['META','🏁','finish'];
+  if(Object.prototype.hasOwnProperty.call(ladders,n))return [`SUBE A ${ladders[n]}`,'🪜','ladder-start'];
+  if(Object.values(ladders).includes(n))return ['LLEGA ESCALERA','⬆️','ladder-end'];
+  if(witches.includes(n))return ['BRUJA · −5','🧙','witch-cell'];
+  if(elves.includes(n))return ['DUENDE · −2','🧝','elf-cell'];
+  return ['', '', ''];
+}
+function renderTrack(){
+  const track=document.getElementById('track');track.innerHTML='';
+  const order=[];
+  for(let row=0;row<5;row++){
+    const nums=Array.from({length:6},(_,i)=>row*6+i+1);
+    if(row%2===1)nums.reverse();order.push(...nums);
+  }
+  order.forEach(n=>{
+    const [label,icon,type]=cellDescription(n),cell=document.createElement('div');
+    cell.className='cell'+(type?' '+type:'')+((Object.prototype.hasOwnProperty.call(ladders,n)||Object.values(ladders).includes(n)||witches.includes(n)||elves.includes(n))?' special':'');
+    cell.setAttribute('aria-label',`Casilla ${n}${label?': '+label:''}`);
+    if(label)cell.title=`Casilla ${n}: ${label}`;
+    const number=document.createElement('span');number.className='cell-number';number.textContent=n;
+    const glyph=document.createElement('span');glyph.className='cell-icon';glyph.textContent=icon;cell.append(number,glyph);
+    if(label){const tag=document.createElement('span');tag.className='cell-detail';tag.textContent=label;cell.append(tag);}
+    const tokens=document.createElement('div');tokens.className='tokens';
+    players.filter(p=>p.position===n&&!p.done).forEach(p=>{const dot=document.createElement('span');dot.className='token-dot';dot.style.background=p.color;dot.title=`Jugador ${p.id+1}`;tokens.append(dot);});
+    cell.append(tokens);track.append(cell);
+  });
+  const active=players.filter(p=>!p.done).length;
+  document.getElementById('progress').textContent=players.length?`${active} EN JUEGO · ${finish} CASILLAS`:`SALIDA · ${finish} CASILLAS`;
+}
+function renderPlayers(){
+  const list=document.getElementById('playerList');list.innerHTML='';
+  players.forEach(p=>{
+    const card=document.createElement('div');card.className='player-card'+(sorted&&players[current]===p&&!p.done?' active':'')+(p.done?' done':'');
+    const swatch=document.createElement('span');swatch.className='player-swatch';swatch.style.background=p.color;
+    const info=document.createElement('div');info.className='player-info';
+    const name=document.createElement('b');name.textContent=`Jugador ${p.id+1}${p.done?' · Finalizó':''}`;
+    const status=document.createElement('small');status.textContent=p.done?`Puesto ${p.place} · ${p.points} puntos`:`${p.sort?`Sorteo: ${p.sort} · `:''}En casilla ${p.position}`;
+    info.append(name,status);const pos=document.createElement('span');pos.className='player-pos';pos.textContent=p.done?'🏆':p.position;
+    card.append(swatch,info,pos);list.append(card);
+  });
+}
+function renderGame(){
+  renderTrack();renderPlayers();
+  const banner=document.getElementById('turnBanner');
+  if(!started)banner.textContent='Primero prepara la partida.';
+  else if(!sorted)banner.textContent='Sorteo de salida pendiente.';
+  else if(players.every(p=>p.done))banner.textContent='¡Partida finalizada!';
+  else banner.textContent=`Turno de Jugador ${players[current].id+1} · Ronda ${round}`;
+}
+function animateMove(player,target,callback){
+  const token=gameToken,step=player.position<target?1:-1;
+  function move(){
+    if(token!==gameToken)return;
+    if(player.position===target){callback();return;}
+    player.position+=step;renderGame();later(move,65,token);
+  }
+  move();
+}
+function rollDice(){
+  if(!started||!sorted||locked||!players[current]||players[current].done)return;
+  locked=true;document.getElementById('rollBtn').disabled=true;
+  const token=gameToken,die=document.getElementById('die');die.classList.remove('rolling');void die.offsetWidth;die.classList.add('rolling');
+  let ticks=0;
+  const spin=setInterval(()=>{
+    if(token!==gameToken){clearInterval(spin);return;}
+    die.textContent=diceFaces[Math.floor(Math.random()*6)];ticks++;
+    if(ticks>=10){clearInterval(spin);intervalIds=intervalIds.filter(x=>x!==spin);const roll=rollDie();die.textContent=diceFaces[roll-1];resolveRoll(roll,token);}
+  },70);
+  intervalIds.push(spin);
+}
+function resolveRoll(roll,token=gameToken){
+  const p=players[current],old=p.position,target=old+roll;
+  if(target>finish){setMessage(`Jugador ${p.id+1} sacó ${roll}. Necesita el número exacto para llegar a la meta; permanece en la casilla ${old}.`);endTurn();return;}
+  animateMove(p,target,()=>{
+    if(token!==gameToken)return;
+    let event='';
+    // Solo se activa el elemento de la casilla donde termina la tirada.
+    // Las casillas a las que se llega por una escalera o retroceso no encadenan otro efecto.
+    const landed=p.position;
+    if(Object.prototype.hasOwnProperty.call(ladders,landed)){
+      const destination=ladders[landed];
+      event=` ¡ESCALERA! Subes de la casilla ${landed} a la ${destination}.`;
+      animateMove(p,destination,()=>finishTurnMessage(p,roll,event));
+    }else if(witches.includes(landed)){
+      const destination=Math.max(1,landed-5);
+      event=` ¡BRUJA! Retrocedes 5 casillas: de la ${landed} a la ${destination}.`;
+      animateMove(p,destination,()=>finishTurnMessage(p,roll,event));
+    }else if(elves.includes(landed)){
+      const destination=Math.max(1,landed-2);
+      event=` ¡DUENDE! Retrocedes 2 casillas: de la ${landed} a la ${destination}.`;
+      animateMove(p,destination,()=>finishTurnMessage(p,roll,event));
+    }else finishTurnMessage(p,roll,'');
+  });
+}
+function finishTurnMessage(p,roll,event){
+  if(p.position===finish){p.done=true;p.finishRound=round;roundFinishers.push(p.id);}
+  setMessage(p.done?`¡Jugador ${p.id+1} llegó exactamente a la meta!${event} El puesto se confirmará al terminar la ronda, por si hay empate.`:`Jugador ${p.id+1} sacó ${roll}.${event||' Avanza sin encontrar obstáculos.'} Termina en la casilla ${p.position}.`);
+  endTurn();
+}
+function pointsForPlace(place){return place===1?3:place===2?2:(place===3||place===4)?1:0;}
+function settleRoundFinishers(){
+  if(!roundFinishers.length)return '';
+  const group=roundFinishers.map(id=>players[id]);let detail='';
+  if(group.length>1){
+    const log=[];
+    function orderByTie(entries){
+      if(entries.length<=1)return entries;
+      const rolled=entries.map(player=>({player,roll:rollDie()}));
+      log.push(rolled.map(x=>`J${x.player.id+1}: ${x.roll}`).join(' · '));
+      const byRoll=new Map();
+      rolled.forEach(x=>{if(!byRoll.has(x.roll))byRoll.set(x.roll,[]);byRoll.get(x.roll).push(x.player);});
+      const values=[...byRoll.keys()].sort((a,b)=>b-a);
+      const ordered=[];
+      values.forEach(value=>{
+        const tied=byRoll.get(value);
+        if(tied.length===1)ordered.push(tied[0]);
+        else ordered.push(...orderByTie(tied));
+      });
+      return ordered;
+    }
+    const ordered=orderByTie(group);
+    const base=players.filter(p=>p.done&&p.place>0).length+1;
+    ordered.forEach((p,i)=>{p.place=base+i;p.points=pointsForPlace(base+i);});
+    detail=` Desempate de la ronda: ${log.map((line,i)=>`${i===0?'Lanzamiento':'Nuevo lanzamiento'}: ${line}`).join('. ')}. Orden: ${ordered.map((p,i)=>`${i+1}. Jugador ${p.id+1}`).join(' · ')}.`;
+  }else{
+    const p=group[0];p.place=players.filter(x=>x.done&&x.place>0).length+1;p.points=pointsForPlace(p.place);
+    detail=` Jugador ${p.id+1} obtiene el puesto ${p.place} y ${p.points} puntos.`;
+  }
+  roundFinishers=[];return detail;
+}
+function endTurn(){
+  renderGame();
+  if(roundQueue.length){current=roundQueue.shift();locked=false;document.getElementById('rollBtn').disabled=false;renderGame();return;}
+  const tieText=settleRoundFinishers();
+  if(players.every(p=>p.done)){finishGame(tieText);return;}
+  round++;beginRound(false);locked=false;document.getElementById('rollBtn').disabled=false;
+  if(tieText)setMessage(`Terminó la ronda anterior.${tieText} Continúa la ronda ${round}.`);
+  renderGame();
+}
+function finishGame(extra=''){
+  const ranking=[...players].filter(p=>p.done).sort((a,b)=>a.place-b.place);
+  const summary=ranking.map(p=>`Jugador ${p.id+1}: ${p.points} punto(s)`).join(' · ');
+  locked=true;document.getElementById('rollBtn').disabled=true;document.getElementById('roundLabel').textContent='PARTIDA FINALIZADA';
+  setMessage(`¡Todos llegaron a la meta!${extra} Resultado final: ${summary}.`);renderGame();
+}
+function resetGame(){
+  clearGameTimers();gameToken++;players=[];current=0;locked=false;started=false;sorted=false;round=1;roundQueue=[];roundFinishers=[];
+  document.getElementById('playerCount').disabled=false;document.getElementById('startBtn').disabled=false;document.getElementById('startBtn').textContent='Preparar partida';
+  document.getElementById('sortBtn').disabled=true;document.getElementById('rollBtn').disabled=true;document.getElementById('die').textContent='⚄';
+  document.getElementById('roundLabel').textContent='PREPARA LA PARTIDA';setMessage('Elige entre 2 y 6 jugadores y pulsa «Preparar partida».');
+  renderGame();document.getElementById('turnBanner').textContent='Primero prepara la partida.';
+}
+renderGame();
+
+</script>
+</body></html>
